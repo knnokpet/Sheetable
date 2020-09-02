@@ -13,11 +13,12 @@ protocol OverlayViewControllerDelegate: class {
                     targetContentOffset: UnsafeMutablePointer<CGPoint>)
 }
 
-class OverlayViewController: UIViewController, Sheetable, UITableViewDelegate, UITableViewDataSource {
-    
+class OverlayViewController: UIViewController, Sheetable, SheetScrollTransitionDelegatable, UITableViewDelegate, UITableViewDataSource {
     let visualEffectView: UIVisualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
     
     let shadowView: CoverShadowView = CoverShadowView()
+    
+    let delegator: SheetScrollDelegator = SheetScrollDelegator()
     
     weak var delegate: OverlayViewControllerDelegate?
     
@@ -68,17 +69,17 @@ class OverlayViewController: UIViewController, Sheetable, UITableViewDelegate, U
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        delegate?.scrollViewWillBeginDragging(scrollView)
+        delegator.scrollViewWillBeginDragging(scrollView)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        delegate?.scrollViewDidScroll(scrollView)
+        delegator.scrollViewDidScroll(scrollView)
     }
 
     func scrollViewWillEndDragging(_ scrollView: UIScrollView,
                                    withVelocity velocity: CGPoint,
                                    targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        delegate?.scrollView(scrollView, willEndScrollingWithVelocity: velocity, targetContentOffset: targetContentOffset)
+        delegator.scrollView(scrollView, willEndScrollingWithVelocity: velocity, targetContentOffset: targetContentOffset)
     }
 }
 

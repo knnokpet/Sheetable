@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F78DFA6725000120009D70C0 /* SheetScrollTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78DFA6625000120009D70C0 /* SheetScrollTransitionable.swift */; };
+		F78DFA6B25001978009D70C0 /* SheetScrollDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78DFA6A25001978009D70C0 /* SheetScrollDelegate.swift */; };
+		F78DFA6E25001B23009D70C0 /* SheetScrollTransitionDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78DFA6D25001B23009D70C0 /* SheetScrollTransitionDelegatable.swift */; };
 		F7B6AD3424FD4C8E007258C5 /* Sheetable.h in Headers */ = {isa = PBXBuildFile; fileRef = F7B6AD3224FD4C8E007258C5 /* Sheetable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F7B6AD4124FD4CB0007258C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6AD4024FD4CB0007258C5 /* AppDelegate.swift */; };
 		F7B6AD4324FD4CB0007258C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6AD4224FD4CB0007258C5 /* SceneDelegate.swift */; };
@@ -56,6 +59,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F78DFA6625000120009D70C0 /* SheetScrollTransitionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetScrollTransitionable.swift; sourceTree = "<group>"; };
+		F78DFA6A25001978009D70C0 /* SheetScrollDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetScrollDelegate.swift; sourceTree = "<group>"; };
+		F78DFA6D25001B23009D70C0 /* SheetScrollTransitionDelegatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetScrollTransitionDelegatable.swift; sourceTree = "<group>"; };
 		F7B6AD2F24FD4C8E007258C5 /* Sheetable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sheetable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7B6AD3224FD4C8E007258C5 /* Sheetable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sheetable.h; sourceTree = "<group>"; };
 		F7B6AD3324FD4C8E007258C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -101,6 +107,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F78DFA6C250019C6009D70C0 /* ScrollTransition */ = {
+			isa = PBXGroup;
+			children = (
+				F78DFA6D25001B23009D70C0 /* SheetScrollTransitionDelegatable.swift */,
+				F78DFA6625000120009D70C0 /* SheetScrollTransitionable.swift */,
+				F78DFA6A25001978009D70C0 /* SheetScrollDelegate.swift */,
+			);
+			path = ScrollTransition;
+			sourceTree = "<group>";
+		};
 		F7B6AD2524FD4C8E007258C5 = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				F7B6AD5224FD4CCD007258C5 /* Sheetable.swift */,
+				F78DFA6C250019C6009D70C0 /* ScrollTransition */,
 				F7B6AD5A24FD4E4E007258C5 /* OverlayViewTransitionable.swift */,
 				F7B6AD5924FD4E4E007258C5 /* OverlayViewTransitionObservable.swift */,
 			);
@@ -316,11 +333,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F78DFA6E25001B23009D70C0 /* SheetScrollTransitionDelegatable.swift in Sources */,
 				F7B6AD5D24FD4E4E007258C5 /* OverlayViewTransitionCoordinator.swift in Sources */,
+				F78DFA6725000120009D70C0 /* SheetScrollTransitionable.swift in Sources */,
 				F7B6AD6324FD4E85007258C5 /* FloatViewNotification.swift in Sources */,
 				F7B6AD5E24FD4E4E007258C5 /* OverlayViewTransitionObservable.swift in Sources */,
 				F7B6AD6524FD4EBB007258C5 /* OverlayViewLayoutConstraintParameter.swift in Sources */,
 				F7B6AD7224FFCCBE007258C5 /* SheetNavigationView.swift in Sources */,
+				F78DFA6B25001978009D70C0 /* SheetScrollDelegate.swift in Sources */,
 				F7B6AD5524FD4E02007258C5 /* CoverShadowView.swift in Sources */,
 				F7B6AD6124FD4E5F007258C5 /* PassThroughView.swift in Sources */,
 				F7B6AD5C24FD4E4E007258C5 /* OverlayViewStackController.swift in Sources */,

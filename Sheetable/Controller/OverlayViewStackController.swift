@@ -169,9 +169,9 @@ public class OverlayViewStackController: NSObject {
         
         viewController.didMove(toParent: containerViewController)
         
-//        if viewController is OverlayViewController {
-//            (viewController as! OverlayViewController).delegate = self
-//        }
+        if viewController is SheetScrollTransitionDelegatable {
+            (viewController as! SheetScrollTransitionDelegatable).delegator.delegate = self
+        }
         
         self.transitionCoordinator?.present(completionHandler: { (finished) in
             if finished {
@@ -241,11 +241,11 @@ public class OverlayViewStackController: NSObject {
     }
     
 }
-/*
-extension FloatStackController: OverlayViewControllerDelegate {
+
+extension OverlayViewStackController: SheetScrollDelegate {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         self.overlayModeBeforeProgressing = self.currentOverlayMode
-        self.transitionCoordinator?.beginFloatViewTranslation()
+        self.transitionCoordinator?.beginOverlayViewTranslation()
         self.offsetBeganDragging = scrollView.contentOffset
     }
     
@@ -264,7 +264,7 @@ extension FloatStackController: OverlayViewControllerDelegate {
         }
         let translation = scrollView.panGestureRecognizer.translation(in: self.currentOverlayViewController?.view)
         let adjustedTranslation = CGPoint(x: translation.x, y: translation.y - offsetBeganDragging.y)
-        self.transitionCoordinator?.endFloatViewTranslation(adjustedTranslation, recognizer: scrollView.panGestureRecognizer)
+        self.transitionCoordinator?.endOverlayViewTranslation(adjustedTranslation, recognizer: scrollView.panGestureRecognizer)
     }
     
     func shouldTranslateView(following scrollView: UIScrollView) -> Bool {
@@ -288,10 +288,11 @@ extension FloatStackController: OverlayViewControllerDelegate {
         scrollView.contentOffset = .zero
         let translation = scrollView.panGestureRecognizer.translation(in: self.containerViewController.view)
         let adjustedTranslation = CGPoint(x: translation.x, y: translation.y - offsetBeganDragging.y)
-        self.transitionCoordinator?.translateFloatView(adjustedTranslation)
+        self.transitionCoordinator?.translateOverlayView(adjustedTranslation)
     }
+    
 }
-*/
+
 extension OverlayViewStackController: OverlayViewContainerViewControllerDelegate {
     func overlayViewContainerViewControllerWillTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         
